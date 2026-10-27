@@ -28,6 +28,10 @@ public final class Database {
     public static Path getDatabasePath() {
         String override = System.getProperty(PATH_PROPERTY);
 
+        if (override == null || override.isBlank()) {
+            override = System.getenv("LOANDESK_DB_PATH");
+        }
+
         return override == null || override.isBlank()
                 ? DEFAULT_PATH
                 : Path.of(override);
