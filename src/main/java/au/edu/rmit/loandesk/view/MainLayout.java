@@ -97,13 +97,15 @@ public class MainLayout {
 
         pageContent = new VBox(24);
         pageContent.setAlignment(Pos.TOP_LEFT);
-        pageContent.setPadding(new Insets(40, 48, 40, 48));
+        pageContent.setPadding(new Insets(24, 48, 16, 48));
 
         pageContent.getChildren().addAll(
                 pageTitle,
                 pageDescription,
                 content
         );
+        
+        VBox.setVgrow(content, Priority.ALWAYS);
 
         root.setCenter(pageContent);
 

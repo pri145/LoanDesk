@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -47,11 +48,6 @@ public class LoanManagementView {
     private final Label messageLabel = new Label();
 
     public LoanManagementView() {
-        Label introLabel = new Label(
-                "Track borrowed items, due dates and return status.");
-        introLabel.setStyle(
-                "-fx-font-size: 13px; -fx-text-fill: #64748b;");
-
         searchField.setPromptText(
                 "Search code, item or borrower...");
         searchField.setPrefWidth(260);
@@ -69,17 +65,20 @@ public class LoanManagementView {
         configureTable();
         disableActionsWithoutSelection();
 
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
         HBox actions = new HBox(
-                10, addButton, editButton, returnButton, deleteButton);
+                10, addButton, editButton, returnButton, deleteButton,
+                spacer, backButton);
         actions.setAlignment(Pos.CENTER_LEFT);
 
         messageLabel.setWrapText(true);
         messageLabel.setStyle("-fx-text-fill: #b91c1c;");
 
         VBox content = new VBox(
-                16, introLabel, filters, loanTable,
-                actions, messageLabel, backButton);
-        content.setPadding(new Insets(8, 0, 8, 0));
+                12, filters, loanTable, actions, messageLabel);
+        content.setPadding(new Insets(0));
         VBox.setVgrow(loanTable, Priority.ALWAYS);
 
         mainLayout = new MainLayout(
@@ -165,7 +164,7 @@ public class LoanManagementView {
 
         loanTable.setPlaceholder(
                 new Label("No loans found. Add a loan to get started."));
-        loanTable.setMinHeight(250);
+        loanTable.setMinHeight(200);
     }
 
     /** Edit, return and delete only make sense for a selected row. */
