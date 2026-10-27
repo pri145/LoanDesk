@@ -1,6 +1,7 @@
 au\edu\rmit\loandesk\controller\DashboardController.class
 au\edu\rmit\loandesk\controller\SignUpController.class
 au\edu\rmit\loandesk\service\PasswordService.class
+au\edu\rmit\loandesk\view\WindowSettings.class
 au\edu\rmit\loandesk\view\DashboardView.class
 au\edu\rmit\loandesk\controller\LoginController.class
 au\edu\rmit\loandesk\service\AuthService.class

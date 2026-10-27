@@ -57,7 +57,8 @@ public class DashboardController {
                             stage,
                             loggedInUser,
                             loanService,
-                            this::show
+                            this::show,
+                            onLogout
                     );
 
             loanController.show();

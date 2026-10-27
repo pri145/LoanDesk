@@ -12,7 +12,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -177,10 +176,7 @@ public class ProfileView {
 
         mainLayout.getProfileButton().setVisible(false);
         mainLayout.getProfileButton().setManaged(false);
-
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
-
+    
         scene = new Scene(mainLayout.getRoot(), 1180, 760);
     }
 
@@ -250,8 +246,7 @@ public class ProfileView {
     public void show(Stage stage) {
         stage.setTitle("LoanDesk - Edit Profile");
         stage.setScene(scene);
-        stage.setMinWidth(900);
-        stage.setMinHeight(650);
+        WindowSettings.apply(stage);
         stage.show();
     }
 

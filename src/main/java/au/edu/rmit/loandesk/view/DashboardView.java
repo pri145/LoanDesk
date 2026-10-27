@@ -173,8 +173,7 @@ public class DashboardView {
     public void show(Stage stage) {
         stage.setTitle("LoanDesk - Dashboard");
         stage.setScene(scene);
-        stage.setMinWidth(800);
-        stage.setMinHeight(550);
+        WindowSettings.apply(stage);
         stage.show();
     }
 

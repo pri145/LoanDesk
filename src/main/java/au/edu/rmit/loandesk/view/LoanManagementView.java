@@ -180,9 +180,8 @@ public class LoanManagementView {
 
     public void show(Stage stage) {
         stage.setTitle("LoanDesk | Manage Loans");
-        stage.setMinWidth(950);
-        stage.setMinHeight(600);
         stage.setScene(scene);
+        WindowSettings.apply(stage);
         stage.show();
     }
 
@@ -226,6 +225,10 @@ public class LoanManagementView {
         return refreshButton;
     }
 
+    public Button getLogoutButton() {
+        return mainLayout.getLogoutButton();
+    }
+    
     public Button getBackButton() {
         return backButton;
     }

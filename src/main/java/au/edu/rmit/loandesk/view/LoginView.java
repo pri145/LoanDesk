@@ -100,8 +100,7 @@ public class LoginView {
     public void show(Stage stage) {
         stage.setTitle("LoanDesk - Log In");
         stage.setScene(scene);
-        stage.setMinWidth(450);
-        stage.setMinHeight(500);
+        WindowSettings.apply(stage);
         stage.show();
     }
 

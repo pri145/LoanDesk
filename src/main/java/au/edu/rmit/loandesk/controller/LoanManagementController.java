@@ -22,6 +22,7 @@ public class LoanManagementController {
     private final LoanService loanService;
     private final LoanManagementView view;
     private final Runnable onBack;
+    private final Runnable onLogout;
 
     private List<Loan> allLoans = List.of();
 
@@ -29,13 +30,15 @@ public class LoanManagementController {
             Stage stage,
             User user,
             LoanService loanService,
-            Runnable onBack) {
+            Runnable onBack,
+            Runnable onLogout) {
 
         this.stage = stage;
         this.user = user;
         this.loanService = loanService;
         this.view = new LoanManagementView();
         this.onBack = onBack;
+        this.onLogout = onLogout;
 
         connectActions();
         refreshLoans();
@@ -72,6 +75,12 @@ public class LoanManagementController {
         view.getBackButton().setOnAction(event -> {
             if (onBack != null) {
                 onBack.run();
+            }
+        });
+        
+        view.getLogoutButton().setOnAction(event -> {
+            if (onLogout != null) {
+                onLogout.run();
             }
         });
 

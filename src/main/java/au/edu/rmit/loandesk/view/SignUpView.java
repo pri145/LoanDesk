@@ -127,8 +127,7 @@ public class SignUpView {
     public void show(Stage stage) {
         stage.setTitle("LoanDesk - Sign Up");
         stage.setScene(scene);
-        stage.setMinWidth(450);
-        stage.setMinHeight(650);
+        WindowSettings.apply(stage);
         stage.show();
     }
 
